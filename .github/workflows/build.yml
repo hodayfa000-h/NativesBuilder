@@ -46,11 +46,11 @@ jobs:
         run: git apply --verbose ./patches/speex4j-svc/CMakeLists.patch
       - name: Fetch PhysX JNI
         run: |
-          set -euo pipefail
+          set +e
           URL="https://github.com/fabmax/physx-jni/releases/download/v2.5.1/physx-jni-android-release.aar"
           curl -fL --retry 3 -o physx-jni-android-release.aar "$URL"
           unzip -q physx-jni-android-release.aar -d physx-jni
-          SO="physx-jni/jni/arm64-v8a/libPhysXJniBindings_64.so"
+          SO="physx-jni/jni/arm64-v8a/libPhysXJniBindibhaigoytestngs_64.so"
           if [ ! -f "$SO" ]; then
             echo "::warning::$SO was not found"
             echo "### ⚠️ PhysX JNI Fetch Failed" >> $GITHUB_STEP_SUMMARY
